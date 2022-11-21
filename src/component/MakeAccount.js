@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { Form, Label, Input, Button, Col, FormGroup, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import axios from 'axios';
 
 class MakeAccount extends Component {
     constructor(props) {
@@ -37,8 +38,21 @@ class MakeAccount extends Component {
         }
     }
 
-    toggle = () => {
+    toggle = (e) => {
         this.setState({ modal: !this.state.modal });
+    }
+
+    submit = (e) => {
+        console.log(JSON.stringify(this.state.acc));
+        axios.post('http://localhost:8080/api/make-account',
+            { acc: JSON.stringify(this.state.acc) }
+        ).then((response) => {
+            this.setState({ msg_header: '계좌개설', msg_body: '계좌가 개설되었습니다.' });
+            this.toggle();
+        }).catch((error) => {
+            this.setState({ msg_header: '오류', msg_body: '계좌개설에 실패했습니다.' });
+            this.toggle();
+        })
     }
 
     render() {
@@ -82,7 +96,7 @@ class MakeAccount extends Component {
                     </FormGroup>
                     <FormGroup row>
                         <Col>
-                            <Button sm={12} style={{ width: '100%' }} color='primary'>계좌 개설</Button>
+                            <Button sm={12} style={{ width: '100%' }} color='primary' onClick={this.submit}>계좌 개설</Button>
                         </Col>
                     </FormGroup>
                 </Form>
