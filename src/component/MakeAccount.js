@@ -61,7 +61,7 @@ class MakeAccount extends Component {
                     <FormGroup row>
                         <Label for="accountNumber" sm={4}>계 좌&nbsp; 번 호</Label>
                         <Col sm={5}>
-                            <Input type="text" name="accountNumber" id="account_number" sm={6} value={this.state.acc.accountNumber} onChange={this.change} />
+                            <Input type="text" name="accountNumber" id="accountNumber" sm={6} value={this.state.acc.accountNumber} onChange={this.change} />
                         </Col>
                         <Col>
                             <Button sm={2} color='primary' style={{ width: '100px' }}>중복</Button>
