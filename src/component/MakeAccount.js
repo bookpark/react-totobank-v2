@@ -12,7 +12,7 @@ class MakeAccount extends Component {
         };
         this.state = {
             acc: {
-                id: '',
+                accountNumber: '',
                 name: '',
                 password: '',
                 grade: ''
@@ -44,8 +44,7 @@ class MakeAccount extends Component {
 
     submit = (e) => {
         console.log(JSON.stringify(this.state.acc));
-        axios.post('http://localhost:8080/api/make-account',
-            { acc: JSON.stringify(this.state.acc) }
+        axios.post('http://localhost:8080/api/make-account', null, { params: this.state.acc }
         ).then((response) => {
             this.setState({ msg_header: '계좌개설', msg_body: '계좌가 개설되었습니다.' });
             this.toggle();
@@ -60,9 +59,9 @@ class MakeAccount extends Component {
             <div style={this.divStyle}>
                 <Form>
                     <FormGroup row>
-                        <Label for="id" sm={4}>계 좌&nbsp; 번 호</Label>
+                        <Label for="accountNumber" sm={4}>계 좌&nbsp; 번 호</Label>
                         <Col sm={5}>
-                            <Input type="text" name="id" id="id" sm={6} value={this.state.acc.id} onChange={this.change} />
+                            <Input type="text" name="accountNumber" id="account_number" sm={6} value={this.state.acc.accountNumber} onChange={this.change} />
                         </Col>
                         <Col>
                             <Button sm={2} color='primary' style={{ width: '100px' }}>중복</Button>
@@ -86,7 +85,7 @@ class MakeAccount extends Component {
                             <Input type="checkbox" checked={this.state.special} onChange={this.changeSpecial} />특수계좌
                         </Label>
                         <Col>
-                            <Input type="select" name="grade" id="grade" sm={8} style={{ color: 'grey' }} disabled={!this.state.special} onChange={this.channge}>
+                            <Input type="select" name="grade" id="grade" sm={8} style={{ color: 'grey' }} disabled={!this.state.special} onChange={this.change}>
                                 <option>VIP</option>
                                 <option>Gold</option>
                                 <option>Silver</option>
