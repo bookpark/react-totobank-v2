@@ -42,6 +42,23 @@ class MakeAccount extends Component {
         this.setState({ modal: !this.state.modal });
     }
 
+    checkDuplicate = (e) => {
+        axios.post('http://localhost:8080/api/check-duplicate', null, { params: { accountNumber: this.state.acc.accountNumber } })
+            .then((response) => {
+                let msg = '';
+                if (response.data === true) {
+                    msg = '사용중인 계좌번호입니다.'
+                } else {
+                    msg = '사용가능한 계좌번호입니다.'
+                }
+                this.setState({ msg_header: '계좌중복확인', msg_body: msg });
+                this.toggle();
+            }).catch((error) => {
+                this.setState({ msg_header: '오류', msg_body: '중복계좌 확인을 실패했습니다.' })
+                this.toggle();
+            })
+    }
+
     submit = (e) => {
         console.log(JSON.stringify(this.state.acc));
         axios.post('http://localhost:8080/api/make-account', null, { params: this.state.acc }
@@ -64,7 +81,7 @@ class MakeAccount extends Component {
                             <Input type="text" name="accountNumber" id="accountNumber" sm={6} value={this.state.acc.accountNumber} onChange={this.change} />
                         </Col>
                         <Col>
-                            <Button sm={2} color='primary' style={{ width: '100px' }}>중복</Button>
+                            <Button sm={2} color='primary' style={{ width: '100px' }} onClick={this.checkDuplicate}>중복</Button>
                         </Col>
                     </FormGroup>
                     <FormGroup row>
