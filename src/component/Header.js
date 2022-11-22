@@ -10,7 +10,7 @@ class Header extends Component {
                         <Link to={'/'} id="logo">toto<b>bank</b></Link>
                     </li>
                     <li className="nav-item">
-                        <Link to={'/makeAccount'}>계좌개설</Link>
+                        <Link to={'/make-account'}>계좌개설</Link>
                     </li>
                     <li className="nav-item">
                         <Link to={'/deposit'}>입금</Link>
@@ -19,10 +19,10 @@ class Header extends Component {
                         <Link to={'/withdraw'}>출금</Link>
                     </li>
                     <li className="nav-item">
-                        <Link to={'/transfor'}>계좌이체</Link>
+                        <Link to={'/transfer'}>계좌이체</Link>
                     </li>
                     <li className="nav-item">
-                        <Link to={'/accountInfo'}>계좌조회</Link>
+                        <Link to={'/account-info'}>계좌조회</Link>
                     </li>
                 </ul>
             </div>    
