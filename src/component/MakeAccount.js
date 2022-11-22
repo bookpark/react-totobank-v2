@@ -6,7 +6,7 @@ class MakeAccount extends Component {
     constructor(props) {
         super(props);
         this.divStyle = {
-            width: '600px', height: '430px', textAlign: 'left',
+            width: '556px', height: '350px', textAlign: 'left',
             margin: '100px auto', border: '2px solid grey',
             padding: '40px', borderRadius: '20px'
         };
