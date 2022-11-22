@@ -71,7 +71,7 @@ class InquireAccount extends Component {
                     <FormGroup row>
                         <Label for="balance" sm={4}>잔&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;액</Label>
                         <Col>
-                            <Input type="text" name="balance" id="balannce" sm={8} value={this.state.acc.balance && ''} readOnly />
+                            <Input type="text" name="balance" id="balance" sm={8} value={this.state.acc.balance} readOnly />
                         </Col>
                     </FormGroup>
                     <FormGroup row>
