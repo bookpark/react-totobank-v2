@@ -2,7 +2,7 @@ import { Component } from 'react';
 import { FormGroup, Form, Button, Input, Label, Col, Modal, ModalBody, ModalHeader, ModalFooter } from 'reactstrap';
 import axios from 'axios';
 
-class AccountInfo extends Component {
+class InquireAccount extends Component {
     constructor(props) {
         super(props);
         this.divStyle = {
@@ -96,4 +96,4 @@ class AccountInfo extends Component {
     }
 }
 
-export default AccountInfo;
+export default InquireAccount;

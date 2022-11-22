@@ -4,7 +4,7 @@ import { Routes, Route} from 'react-router-dom';
 import Header from './Header';
 import Main from './Main';
 import MakeAccount from './MakeAccount';
-import AccountInfo from './AccountInfo';
+import InquireAccount from './InquireAccount';
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
       <Routes>
         <Route exact path='/' element={<Main />}/>
         <Route exact path='/make-account' element={<MakeAccount />} />
-        <Route exact path='/account-info' element={<AccountInfo />} />
+        <Route exact path='/account-info' element={<InquireAccount />} />
       </Routes>
     </div>
   );
