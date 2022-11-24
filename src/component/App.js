@@ -8,6 +8,7 @@ import InquireAccount from './InquireAccount';
 import Deposit from './Deposit';
 import Withdraw from './Withdraw';
 import Transfer from './Transfer';
+import AccountList from './AccountList';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route exact path='/deposit' element={<Deposit />} />
         <Route exact path='/withdraw' element={<Withdraw />} />
         <Route exact path='/transfer' element={<Transfer />} />
+        <Route exact path='/account-list' element={<AccountList />} />
       </Routes>
     </div>
   );
